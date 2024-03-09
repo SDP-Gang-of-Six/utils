@@ -1,4 +1,4 @@
-package cn.wxl475.utils;
+package cn.wxl475.redis;
 
 import cn.hutool.core.util.BooleanUtil;
 import cn.hutool.core.util.StrUtil;
@@ -14,7 +14,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 
-import static cn.wxl475.utils.RedisConstants.*;
+import static cn.wxl475.redis.RedisConstants.*;
 
 @Component
 public class CacheClient {

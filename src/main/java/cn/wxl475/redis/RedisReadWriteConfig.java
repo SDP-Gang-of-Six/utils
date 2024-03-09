@@ -1,4 +1,4 @@
-package cn.wxl475.utils;
+package cn.wxl475.redis;
 
 import io.lettuce.core.ReadFrom;
 import org.springframework.boot.autoconfigure.data.redis.LettuceClientConfigurationBuilderCustomizer;

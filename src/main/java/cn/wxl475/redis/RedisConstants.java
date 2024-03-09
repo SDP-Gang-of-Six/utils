@@ -1,4 +1,4 @@
-package cn.wxl475.utils;
+package cn.wxl475.redis;
 
 public class RedisConstants {
 //    public static final Long CACHE_GOODS_TTL=30L;
