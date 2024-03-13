@@ -1,5 +1,6 @@
 package cn.wxl475.mysql;
 
+import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -32,15 +33,15 @@ public class MybatisConfig {
      */
     @Bean
     public SqlSessionFactory sqlSessionFactory() throws Exception {
-        SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
-        factoryBean.setDataSource(dataSource);
+        MybatisSqlSessionFactoryBean sessionFactory = new MybatisSqlSessionFactoryBean();
+        sessionFactory.setDataSource(dataSource);
 //        //配置映射文件路径
 //        factoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:/mappers/*.xml"));
 //        //配置别名
 //        factoryBean.setTypeAliasesPackage("cn.wxl475.pojo");
 //        //设置驼峰命名
 //        Objects.requireNonNull(factoryBean.getObject()).getConfiguration().setMapUnderscoreToCamelCase(true);
-        return factoryBean.getObject();
+        return sessionFactory.getObject();
     }
 
     /**
