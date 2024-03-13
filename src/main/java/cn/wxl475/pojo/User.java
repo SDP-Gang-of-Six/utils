@@ -1,10 +1,13 @@
 package cn.wxl475.pojo;
 
 
+import cn.hutool.core.date.DateTime;
 import com.baomidou.mybatisplus.annotation.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
@@ -35,9 +38,9 @@ public class User {
 
     //注解填充字段 @TableField(.. fill = FieldFill.INSERT) 生成器策略部分也可以配置！
     @TableField(fill = FieldFill.INSERT)
-    private Data createTime;
+    private LocalDateTime createTime;
 
     @TableField(fill = FieldFill.INSERT_UPDATE)
-    private Data updateTime;
+    private LocalDateTime updateTime;
 
 }
