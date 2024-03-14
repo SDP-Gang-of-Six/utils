@@ -1,4 +1,4 @@
-package cn.wxl475.pojo;
+package cn.wxl475.pojo.enums;
 
 public enum questionType {
     option(0),

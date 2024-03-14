@@ -1,12 +1,12 @@
 package cn.wxl475.pojo;
 
+import cn.wxl475.pojo.enums.optionType;
 import com.baomidou.mybatisplus.annotation.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -16,7 +16,7 @@ public class Question {
     @TableId(type = IdType.ASSIGN_ID)
     private Long questionId;
     @TableField("question_type")
-    private questionType questionType;
+    private cn.wxl475.pojo.enums.questionType questionType;
     @TableField("description")
     private String description;
     @TableField("tag")

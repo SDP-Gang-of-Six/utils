@@ -9,12 +9,12 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@TableName(value = "PaperScore",schema = "exam")
+@TableName(value = "paperScore",schema = "exam")
 public class PaperScore {
     @TableField("paper_id")
     private Long paperId;
     @TableField("question_id")
     private Long questionId;
-    @TableField("PaperScore")
+    @TableField("paper_Score")
     private Integer score;
 }
