@@ -29,13 +29,16 @@ public class CacheClient {
         stringRedisTemplate.opsForValue().set(key, JSONUtil.toJsonStr(value),time,unit);
     }
 
+    public void delete(String key) {
+        stringRedisTemplate.delete(key);
+    }
+
     public void setWithLogicalExpire(String key, Object value, Long time, TimeUnit unit){
         RedisData redisData = new RedisData();
         redisData.setData(value);
         redisData.setExpireTime(LocalDateTime.now().plusSeconds(unit.toSeconds(time)));
         stringRedisTemplate.opsForValue().set(key, JSONUtil.toJsonStr(redisData));
     }
-
     //回写“”值解决缓存穿透
     public <R,ID> R queryWithPassThrough(String keyPrefix, ID id , Class<R> type, Function<ID,R> dbFallback,Long time, TimeUnit unit){
         String key=keyPrefix+id;
