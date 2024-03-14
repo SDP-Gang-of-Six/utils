@@ -1,5 +1,6 @@
 package cn.wxl475.mysql;
 
+import com.baomidou.mybatisplus.core.MybatisConfiguration;
 import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -35,12 +36,16 @@ public class MybatisConfig {
     public SqlSessionFactory sqlSessionFactory() throws Exception {
         MybatisSqlSessionFactoryBean sessionFactory = new MybatisSqlSessionFactoryBean();
         sessionFactory.setDataSource(dataSource);
-        //配置映射文件路径
-//        sessionFactory.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:/mappers/*.xml"));
-//        //配置别名
-//        sessionFactory.setTypeAliasesPackage("cn.wxl475.pojo");
-//        //设置驼峰命名
-//        Objects.requireNonNull(sessionFactory.getObject()).getConfiguration().setMapUnderscoreToCamelCase(true);
+        MybatisConfiguration configuration=new MybatisConfiguration();
+//        日志输出
+        configuration.setLogImpl(org.apache.ibatis.logging.stdout.StdOutImpl.class);
+//        驼峰命名
+        configuration.setMapUnderscoreToCamelCase(true);
+//        扫描实体类
+        configuration.getTypeAliasRegistry().registerAliases("cn.wxl475.pojo");
+        sessionFactory.setConfiguration(configuration);
+//        配置映射文件路径
+        sessionFactory.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath*:/mapper/**/*.xml"));
         return sessionFactory.getObject();
     }
 
