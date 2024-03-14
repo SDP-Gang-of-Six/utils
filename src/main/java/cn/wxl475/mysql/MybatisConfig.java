@@ -35,12 +35,12 @@ public class MybatisConfig {
     public SqlSessionFactory sqlSessionFactory() throws Exception {
         MybatisSqlSessionFactoryBean sessionFactory = new MybatisSqlSessionFactoryBean();
         sessionFactory.setDataSource(dataSource);
-//        //配置映射文件路径
-//        factoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:/mappers/*.xml"));
+        //配置映射文件路径
+//        sessionFactory.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:/mappers/*.xml"));
 //        //配置别名
-//        factoryBean.setTypeAliasesPackage("cn.wxl475.pojo");
+//        sessionFactory.setTypeAliasesPackage("cn.wxl475.pojo");
 //        //设置驼峰命名
-//        Objects.requireNonNull(factoryBean.getObject()).getConfiguration().setMapUnderscoreToCamelCase(true);
+//        Objects.requireNonNull(sessionFactory.getObject()).getConfiguration().setMapUnderscoreToCamelCase(true);
         return sessionFactory.getObject();
     }
 
