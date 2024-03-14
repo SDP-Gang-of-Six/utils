@@ -20,11 +20,11 @@ public class Image {
     private String imageName;
     private String imageType;
     private Long imageSize;
-    //注解填充字段 @TableField(.. fill = FieldFill.INSERT) 生成器策略部分也可以配置！
-    @TableField(fill = FieldFill.INSERT)
+//    //注解填充字段 @TableField(.. fill = FieldFill.INSERT) 生成器策略部分也可以配置！
+//    @TableField(fill = FieldFill.INSERT)
     private LocalDateTime createTime;
-    //注解填充字段 @TableField(.. fill = FieldFill.INSERT) 生成器策略部分也可以配置！
-    @TableField(fill = FieldFill.INSERT_UPDATE)
+//    //注解填充字段 @TableField(.. fill = FieldFill.INSERT) 生成器策略部分也可以配置！
+//    @TableField(fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime updateTime;
     @TableLogic
     private Integer Deleted;
