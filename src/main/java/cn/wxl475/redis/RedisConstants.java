@@ -9,4 +9,7 @@ public class RedisConstants {
     public static final String CACHE_QUESTION_KEY="cache:question:";
     public static final String CACHE_PAPER_KEY="cache:paper:";
     public static final String CACHE_EXAM_KEY="cache:exam:";
+    public static final String CACHE_USERS_KEY="cache:users:";
+    public static final String LOCK_USERS_KEY="lock:users:";
+    public static final Long LOCK_USERS_TTL=10L;
 }

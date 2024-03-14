@@ -6,6 +6,6 @@ import java.time.LocalDateTime;
 
 @Data
 public class RedisData {
-    private LocalDateTime expire_time;
+    private LocalDateTime expireTime;
     private Object data;
 }

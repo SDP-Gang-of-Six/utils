@@ -32,7 +32,7 @@ public class CacheClient {
     public void setWithLogicalExpire(String key, Object value, Long time, TimeUnit unit){
         RedisData redisData = new RedisData();
         redisData.setData(value);
-        redisData.setExpire_time(LocalDateTime.now().plusSeconds(unit.toSeconds(time)));
+        redisData.setExpireTime(LocalDateTime.now().plusSeconds(unit.toSeconds(time)));
         stringRedisTemplate.opsForValue().set(key, JSONUtil.toJsonStr(redisData));
     }
 
@@ -67,7 +67,7 @@ public class CacheClient {
         }
         RedisData redisData=JSONUtil.toBean(json,RedisData.class);
         R r =JSONUtil.toBean((JSONObject) redisData.getData(),type);
-        LocalDateTime expireTime= redisData.getExpire_time();
+        LocalDateTime expireTime= redisData.getExpireTime();
         //判断是否过期
         if(expireTime.isAfter(LocalDateTime.now())){
             //未过期
