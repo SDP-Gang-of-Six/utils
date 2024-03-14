@@ -15,15 +15,10 @@ public class Image {
     //对应数据库中的主键（UUID、自增id、雪花算法、redis、zookeeper）
     @TableId(type = IdType.ASSIGN_ID)
     private Long imageId;
-    @TableField("user_id")
     private Long userId;
-    @TableField("image_url")
     private String imageUrl;
-    @TableField("image_name")
     private String imageName;
-    @TableField("image_type")
     private String imageType;
-    @TableField("image_size")
     private Long imageSize;
     //注解填充字段 @TableField(.. fill = FieldFill.INSERT) 生成器策略部分也可以配置！
     @TableField(fill = FieldFill.INSERT)
