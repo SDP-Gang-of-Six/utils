@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@TableName(value = "paperscore",schema = "exam")
+@TableName(value = "paperScore",schema = "exam")
 public class PaperScore {
     @TableField("paper_id")
     private Long paperId;
