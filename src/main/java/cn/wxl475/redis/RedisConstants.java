@@ -12,5 +12,5 @@ public class RedisConstants {
     public static final String CACHE_EXAM_KEY="cache:exam:";
     public static final String CACHE_USERS_KEY="cache:users:";
     public static final String LOCK_USERS_KEY="lock:users:";
-    public static final Long LOCK_USERS_TTL=10L;
+    public static final Long CACHE_USERS_TTL=30L;
 }
