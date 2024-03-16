@@ -13,4 +13,7 @@ public class RedisConstants {
     public static final String CACHE_USERS_KEY="cache:users:";
     public static final String LOCK_USERS_KEY="lock:users:";
     public static final Long CACHE_USERS_TTL=30L;
+    public static final String CACHE_ILLNESS_KEY="cache:illness:";
+    public static final String LOCK_ILLNESS_KEY="lock:illness:";
+    public static final Long CACHE_ILLNESS_TTL=30L;
 }

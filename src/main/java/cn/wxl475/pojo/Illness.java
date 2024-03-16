@@ -11,20 +11,22 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@TableName(value = "case", schema = "case")
-public class Case {
+@TableName(value = "illness", schema = "case")
+public class Illness {
     @TableId(type = IdType.ASSIGN_ID)
-    private Long caseId;
+    private Long illnessId;
 
-    private String caseName;
+    private String illnessName;
 
-    private Integer caseType;
+    private Integer illnessType;
 
     private String content;
 
     private String imageUrl;
 
     private String videoUrl;
+
+    private Boolean deleted;
 
     //注解填充字段 @TableField(.. fill = FieldFill.INSERT) 生成器策略部分也可以配置！
     @TableField(fill = FieldFill.INSERT)
