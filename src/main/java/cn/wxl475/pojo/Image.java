@@ -27,5 +27,5 @@ public class Image {
 //    @TableField(fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime updateTime;
     @TableLogic
-    private Integer Deleted;
+    private Boolean Deleted;
 }
