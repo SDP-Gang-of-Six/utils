@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@TableName(value = "illness", schema = "case")
+@TableName(value = "illness", schema = "illness")
 public class Illness {
     @TableId(type = IdType.ASSIGN_ID)
     private Long illnessId;
