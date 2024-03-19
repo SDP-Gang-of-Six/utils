@@ -24,9 +24,33 @@ public class ConvertUtil {
             PaperScore paperScore = new PaperScore();
             paperScore.setPaperId(paperId);
             paperScore.setQuestionId(paperScoreCreater.getQuestionId());
-            paperScore.setScore(paperScoreCreater.getScore());
+            paperScore.setPaperscore(paperScoreCreater.getScore());
             paperScores.add(paperScore);
         }
         return paperScores;
     }
+
+    public static PaperCreater convertPaperToPaperCreater(Paper paper, ArrayList<PaperScore> paperScores) {
+        PaperCreater paperCreater = new PaperCreater();
+        paperCreater.setPaperId(paper.getPaperId());
+        paperCreater.setPaperName(paper.getPaperName());
+        paperCreater.setExamTime(paper.getExamTime());
+        paperCreater.setTotalScore(paper.getTotalScore());
+        paperCreater.setCreateTime(paper.getCreateTime());
+        paperCreater.setUpdateTime(paper.getUpdateTime());
+        paperCreater.setPaperScores(convertPaperScoresToPaperScoreCreaters(paperScores));
+        return paperCreater;
+    }
+
+    public static ArrayList<PaperScoreCreater> convertPaperScoresToPaperScoreCreaters(ArrayList<PaperScore> paperScores) {
+        ArrayList<PaperScoreCreater> paperScoreCreaters = new ArrayList<>();
+        for (PaperScore paperScore : paperScores) {
+            PaperScoreCreater paperScoreCreater = new PaperScoreCreater();
+            paperScoreCreater.setQuestionId(paperScore.getQuestionId());
+            paperScoreCreater.setScore(paperScore.getPaperscore());
+            paperScoreCreaters.add(paperScoreCreater);
+        }
+        return paperScoreCreaters;
+    }
+
 }

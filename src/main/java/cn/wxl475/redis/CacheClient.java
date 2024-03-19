@@ -2,14 +2,18 @@ package cn.wxl475.redis;
 
 import cn.hutool.core.util.BooleanUtil;
 import cn.hutool.core.util.StrUtil;
+import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
+import cn.wxl475.pojo.PaperScore;
 import cn.wxl475.pojo.RedisData;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -75,6 +79,50 @@ public class CacheClient {
         }
         return r;
     }
+    /**
+     * 更新缓存
+     * @param keyPrefix
+     * @param lockKeyPrefix
+     * @param id
+     * @param type
+     * @param dbFallback
+     * @param time
+     * @param unit
+     */
+    public <R,ID> List<R> queryListWithPassThrough(String keyPrefix, String lockKeyPrefix, ID id , Class<R> type, Function<ID,List<R>> dbFallback, Long time, TimeUnit unit){
+        String key=keyPrefix+id;
+        //查询redis
+        String json=stringRedisTemplate.opsForValue().get(key);
+        if(StrUtil.isNotBlank(json)){
+            //不是“”值
+            return JSONUtil.toList(JSONUtil.parseArray(json),type);
+        }
+        if(json!=null){
+            //是redis中缓存的临时“”值
+            return null;
+        }
+        //没查到缓存，也不是临时“”值，需要查询数据库
+        //互斥锁上锁
+        String lockKey=lockKeyPrefix+id;
+        boolean isLock=tryLock(lockKey);
+        List<R> r = null;
+        if(isLock){
+            //查询数据库
+            r = dbFallback.apply(id);
+            //数据库中没有对应数据，回写空值
+            if(r ==null){
+                stringRedisTemplate.opsForValue().set(key,"",CACHE_NULL_TTL,TimeUnit.MINUTES);
+            }
+            //数据库中有数据，随机有效期设置缓存
+            else {
+                this.setWithRandomExpire(key,r,time,unit);
+            }
+            unLock(lockKey);
+        }
+        return r;
+    }
+
+
 
     /**
      * 更新缓存
@@ -86,24 +134,17 @@ public class CacheClient {
      * @param time
      * @param unit
      */
-    public <R,ID> void resetKey(String keyPrefix, String lockKeyPrefix, ID id, Class<R> type, Function<ID,R> dbFallback,Long time, TimeUnit unit){
+    public <R,ID> R resetKey(String keyPrefix, String lockKeyPrefix, ID id, Class<R> type, Function<ID,R> dbFallback,Long time, TimeUnit unit){
         String lockKey = lockKeyPrefix+id;
         String Key = keyPrefix+id;
         boolean isLock=tryLock(lockKey);
         if(isLock){
-            CACHE_REBUILD_EXECUTOR.submit(()->{
-                try{
-                    R r1= dbFallback.apply(id);
-                    this.setWithRandomExpire(Key,r1,time,unit);
-                }
-                catch (Exception e){
-                    throw new RuntimeException(e);
-                }
-                finally {
-                    unLock(lockKey);
-                }
-            });
+            R r = dbFallback.apply(id);
+            this.setWithRandomExpire(Key,r,time,unit);
+            unLock(lockKey);
+            return r;
         }
+        return null;
     }
 
     /**

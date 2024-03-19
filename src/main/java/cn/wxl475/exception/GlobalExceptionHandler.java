@@ -11,6 +11,13 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
+    @ExceptionHandler(PaperScoreException.class)//捕获自定义异常
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)//返回http500状态，代表有异常发生
+    public Result ex(PaperScoreException ex){
+        ex.printStackTrace();
+        return Result.error(ex.getMsg()+"\n ……来自Exam-Paper服务的异常");
+    }
+
     @ExceptionHandler(MyException.class)//捕获自定义异常
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)//返回http500状态，代表有异常发生
     public Result ex1(MyException ex){
