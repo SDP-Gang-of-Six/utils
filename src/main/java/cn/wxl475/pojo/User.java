@@ -25,6 +25,7 @@ public class User {
 
     private Boolean userType;
 
+    @TableLogic
     private Boolean deleted;
 
     //注解填充字段 @TableField(.. fill = FieldFill.INSERT) 生成器策略部分也可以配置！

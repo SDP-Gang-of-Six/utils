@@ -26,6 +26,7 @@ public class Illness {
 
     private String videoUrl;
 
+    @TableLogic
     private Boolean deleted;
 
     //注解填充字段 @TableField(.. fill = FieldFill.INSERT) 生成器策略部分也可以配置！
