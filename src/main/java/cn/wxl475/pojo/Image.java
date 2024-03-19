@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @TableName(value = "images",schema = "data")
 public class Image {
     //对应数据库中的主键（UUID、自增id、雪花算法、redis、zookeeper）
-    @TableId(type = IdType.ASSIGN_ID)
+    @TableId(type = IdType.INPUT)
     private Long imageId;
     private Long userId;
     private String imageUrl;
