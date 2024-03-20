@@ -13,7 +13,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@TableName(value = "illness", schema = "illness")
+@TableName(value = "illness", schema = "illness", autoResultMap = true)
 public class Illness {
     @TableId(type = IdType.ASSIGN_ID)
     private Long illnessId;
