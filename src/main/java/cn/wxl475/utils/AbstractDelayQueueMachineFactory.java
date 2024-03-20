@@ -64,14 +64,14 @@ public abstract class AbstractDelayQueueMachineFactory {
         while (true) {
             try {
                 // 获取当前时间前的任务列表
-                Set<ZSetOperations.TypedTuple<Object>> tuples = redisUtil.zRangeByScore(setDelayQueueName(), 0, System.currentTimeMillis() );
+                Set<ZSetOperations.TypedTuple<String>> tuples = redisUtil.zRangeByScore(setDelayQueueName(), 0, System.currentTimeMillis() );
 
                 // 如果任务不为空
                 if (!CollectionUtils.isEmpty(tuples)) {
                     log.info("延时任务开始执行:{}", JSONUtil.toJsonStr(tuples));
-                    Iterator<ZSetOperations.TypedTuple<Object>> iterator = tuples.iterator();
+                    Iterator<ZSetOperations.TypedTuple<String>> iterator = tuples.iterator();
                     while (iterator.hasNext()){
-                        ZSetOperations.TypedTuple<Object> typedTuple = iterator.next();
+                        ZSetOperations.TypedTuple<String> typedTuple = iterator.next();
                         String jobId = Convert.toStr(typedTuple.getValue());
                         // 移除缓存，如果移除成功则表示当前线程处理了延时任务，则执行延时任务
                         // 删除成功才执行延时任务，否则不执行，这样可以避免分布式系统延时任务多次执行

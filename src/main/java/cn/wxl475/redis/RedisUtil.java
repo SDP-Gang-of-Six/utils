@@ -1,8 +1,8 @@
 package cn.wxl475.redis;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ZSetOperations;
 import org.springframework.stereotype.Component;
 
@@ -12,8 +12,12 @@ import java.util.Set;
 @Component
 public class RedisUtil {
 
-    @Autowired
-    private RedisTemplate<String, Object> redisTemplate;
+
+    public final StringRedisTemplate stringRedisTemplate;
+
+    public RedisUtil(StringRedisTemplate stringRedisTemplate){
+        this.stringRedisTemplate=stringRedisTemplate;
+    }
 
     /**
      * 向Zset里添加成员
@@ -24,7 +28,7 @@ public class RedisUtil {
      * @return 增加状态
      */
     public boolean zAdd(String key, long score, String value) {
-        Boolean result = redisTemplate.opsForZSet().add(key, value, score);
+        Boolean result = stringRedisTemplate.opsForZSet().add(key, value, score);
         return result;
 
     }
@@ -37,8 +41,8 @@ public class RedisUtil {
      * @param to   结束时间
      * @return 数据
      */
-    public Set<ZSetOperations.TypedTuple<Object>> zRangeByScore(String key, int from, long to) {
-        Set<ZSetOperations.TypedTuple<Object>> set = redisTemplate.opsForZSet().rangeByScoreWithScores(key, from, to);
+    public Set<ZSetOperations.TypedTuple<String>> zRangeByScore(String key, int from, long to) {
+        Set<ZSetOperations.TypedTuple<String>> set = stringRedisTemplate.opsForZSet().rangeByScoreWithScores(key, from, to);
         return set;
     }
 
@@ -50,7 +54,7 @@ public class RedisUtil {
      * @return 删除数量
      */
     public Long zRemove(String key, String... value) {
-        return redisTemplate.opsForZSet().remove(key, value);
+        return stringRedisTemplate.opsForZSet().remove(key, value);
     }
 
 }

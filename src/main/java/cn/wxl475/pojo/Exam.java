@@ -22,7 +22,15 @@ public class Exam {
     private LocalDateTime submitTime;
     @TableField("exam_score")
     private Integer examScore;
-
+    // true 为已提交 false 为未提交
+    @TableField("status")
+    private boolean status;
+    @TableField("duration")
+    private Integer duration;
+    @TableField("start_time")
+    private LocalDateTime startTime;
+    @TableField("end_time")
+    private LocalDateTime endTime;
 
     //注解填充字段 @TableField(.. fill = FieldFill.INSERT) 生成器策略部分也可以配置！
     @TableField(fill = FieldFill.INSERT)
