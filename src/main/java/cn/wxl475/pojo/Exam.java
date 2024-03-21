@@ -27,10 +27,12 @@ public class Exam {
     private boolean status;
     @TableField("duration")
     private Integer duration;
+    @TableField("allow_start_time")
+    private LocalDateTime allowStartTime;
+    @TableField("allow_end_time")
+    private LocalDateTime allowEndTime;
     @TableField("start_time")
     private LocalDateTime startTime;
-    @TableField("end_time")
-    private LocalDateTime endTime;
 
     //注解填充字段 @TableField(.. fill = FieldFill.INSERT) 生成器策略部分也可以配置！
     @TableField(fill = FieldFill.INSERT)

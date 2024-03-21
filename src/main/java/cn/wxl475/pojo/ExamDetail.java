@@ -18,8 +18,6 @@ public class ExamDetail {
     private Long questionId;
     @TableField("is_right")
     private boolean isRight;
-    @TableField("score")
-    private Integer score;
     //选择题
     @TableField("option")
     private optionType option;

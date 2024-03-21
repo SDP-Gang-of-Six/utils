@@ -2,7 +2,13 @@ package cn.wxl475.pojo;
 
 import cn.wxl475.pojo.enums.optionType;
 import com.baomidou.mybatisplus.annotation.TableField;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class ExamDetailCreater {
     private Long questionId;
     //选择题

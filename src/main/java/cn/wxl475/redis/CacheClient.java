@@ -19,6 +19,17 @@ import java.util.function.Function;
 import static cn.wxl475.redis.RedisConstants.CACHE_NULL_TTL;
 import static cn.wxl475.redis.RedisConstants.LOCK_GOODS_TTL;
 
+/*
+    * 缓存客户端
+    * 公开方法：
+    * 1.查询并设置缓存方法，回写“”值解决缓存穿透，有效期加盐解决缓存雪崩，互斥锁访问数据库解决缓存击穿
+    * 2.查询List并设置缓存方法，回写“”值解决缓存穿透，有效期加盐解决缓存雪崩，互斥锁访问数据库解决缓存击穿
+    * 3.更新缓存
+    * 4.删除缓存方法
+    * 5.有效期加盐缓存设置方法
+    * 6.设置逻辑过期时间解决缓存击穿（弃用
+*/
+
 @Slf4j
 @Component
 public class CacheClient {
@@ -77,7 +88,7 @@ public class CacheClient {
         return r;
     }
     /**
-     * 更新缓存
+     * 查询List并设置缓存方法，回写“”值解决缓存穿透，有效期加盐解决缓存雪崩，互斥锁访问数据库解决缓存击穿
      * @param keyPrefix
      * @param lockKeyPrefix
      * @param id
@@ -153,6 +164,18 @@ public class CacheClient {
     }
 
     /**
+     * 有效期加盐缓存设置方法
+     * @param key
+     * @param value
+     * @param time
+     * @param unit
+     */
+    public void setWithRandomExpire(String key, Object value, Long time, TimeUnit unit){
+        long randomTime = time + (long)(Math.random() * 10);
+        this.set(key, value, randomTime, unit);
+    }
+
+    /**
      * 设置逻辑过期时间解决缓存击穿（弃用
      * @param keyPrefix
      * @param lockKeyPrefix
@@ -207,18 +230,6 @@ public class CacheClient {
      */
     private void set(String key, Object value, Long time, TimeUnit unit){
         stringRedisTemplate.opsForValue().set(key, JSONUtil.toJsonStr(value),time,unit);
-    }
-
-    /**
-     * 有效期加盐缓存设置方法
-     * @param key
-     * @param value
-     * @param time
-     * @param unit
-     */
-    private void setWithRandomExpire(String key, Object value, Long time, TimeUnit unit){
-        long randomTime = time + (long)(Math.random() * 10);
-        this.set(key, value, randomTime, unit);
     }
 
     /**
