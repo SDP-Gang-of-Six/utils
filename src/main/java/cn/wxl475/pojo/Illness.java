@@ -22,7 +22,17 @@ public class Illness {
 
     private Integer illnessType;
 
-    private String content;
+    // 症状
+    private String symptom;
+
+    // 检查过程
+    private String process;
+
+    // 诊断结果
+    private String consequence;
+
+    // 治疗方案
+    private String schedule;
 
     @TableField(typeHandler = JacksonTypeHandler.class)
     private List<Long> imageIds;
