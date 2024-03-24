@@ -18,7 +18,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @TableName(value = "illness", schema = "illness", autoResultMap = true)
-@Document(indexName = "images")
+@Document(indexName = "illness")
 public class Illness {
     @TableId(type = IdType.ASSIGN_ID)
     @Id
