@@ -36,7 +36,7 @@ public class Exam {
 
     //注解填充字段 @TableField(.. fill = FieldFill.INSERT) 生成器策略部分也可以配置！
     @TableField(fill = FieldFill.INSERT)
-    private LocalDateTime createTime;
+    private String createTime;
     @TableField(fill = FieldFill.INSERT_UPDATE)
-    private LocalDateTime updateTime;
+    private String updateTime;
 }

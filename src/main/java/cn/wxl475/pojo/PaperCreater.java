@@ -19,7 +19,7 @@ public class PaperCreater {
     private String paperName;
     private Integer examTime;
     private Integer totalScore;
-    private LocalDateTime createTime;
-    private LocalDateTime updateTime;
+    private String createTime;
+    private String updateTime;
     private ArrayList<PaperScoreCreater> paperScores;
 }
