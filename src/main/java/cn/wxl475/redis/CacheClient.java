@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 
 import static cn.wxl475.redis.RedisConstants.CACHE_NULL_TTL;
-import static cn.wxl475.redis.RedisConstants.LOCK_GOODS_TTL;
+import static cn.wxl475.redis.RedisConstants.LOCK_TTL;
 
 /*
     * 缓存客户端
@@ -253,7 +253,7 @@ public class CacheClient {
      * @return
      */
     private boolean tryLock(String key){
-        Boolean flag = stringRedisTemplate.opsForValue().setIfAbsent(key,"1",LOCK_GOODS_TTL,TimeUnit.SECONDS);
+        Boolean flag = stringRedisTemplate.opsForValue().setIfAbsent(key,"1", LOCK_TTL,TimeUnit.SECONDS);
         return BooleanUtil.isTrue(flag);
     }
 
