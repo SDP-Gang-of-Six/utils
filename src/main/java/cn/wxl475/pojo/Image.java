@@ -26,21 +26,21 @@ public class Image {
     private Long imageId;
     @Field(type = FieldType.Long, store = true,index = false)
     private Long userId;
-    @Field(type = FieldType.Text, store = true,index = false)
+    @Field(type = FieldType.Text, store = true, analyzer = "ik_max_word",searchAnalyzer = "ik_smart")
     private String imageUrl;
     @Field(type = FieldType.Text, store = true, analyzer = "ik_max_word",searchAnalyzer = "ik_smart")
     private String imageName;
-    @Field(type = FieldType.Text, store = true,index = false)
+    @Field(type = FieldType.Text, store = true, analyzer = "ik_max_word",searchAnalyzer = "ik_smart")
     private String imageType;
     @Field(type = FieldType.Long, store = true,index = false)
     private Long imageSize;
     //注解填充字段 @TableField(.. fill = FieldFill.INSERT) 生成器策略部分也可以配置！
     @TableField(fill = FieldFill.INSERT)
-    @Field(type = FieldType.Text, store = true,index = false)
+    @Field(type = FieldType.Text, store = true, analyzer = "ik_max_word",searchAnalyzer = "ik_smart")
     private String createTime;
     //注解填充字段 @TableField(.. fill = FieldFill.INSERT) 生成器策略部分也可以配置！
     @TableField(fill = FieldFill.INSERT_UPDATE)
-    @Field(type = FieldType.Text, store = true,index = false)
+    @Field(type = FieldType.Text, store = true, analyzer = "ik_max_word",searchAnalyzer = "ik_smart")
     private String updateTime;
     @TableLogic
     @Field(type = FieldType.Boolean, store = true,index = false)
