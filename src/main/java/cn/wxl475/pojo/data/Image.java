@@ -1,4 +1,4 @@
-package cn.wxl475.pojo;
+package cn.wxl475.pojo.data;
 
 import com.baomidou.mybatisplus.annotation.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
