@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -173,6 +174,33 @@ public class CacheClient {
     public void setWithRandomExpire(String key, Object value, Long time, TimeUnit unit){
         long randomTime = time + (long)(Math.random() * 10);
         this.set(key, value, randomTime, unit);
+    }
+
+    /**
+     * 设置hash
+     * @param key
+     * @param hashMap
+     */
+    public void setHash(String key, Map<String,String> hashMap){
+        stringRedisTemplate.opsForHash().putAll(key, hashMap);
+    }
+    /**
+     * 获取hashValue
+     * @param key
+     * @param mapKey
+     * @return Object
+     */
+    public Object getHashValue(String key, String mapKey){
+        return stringRedisTemplate.opsForHash().get(key,mapKey);
+    }
+
+    /**
+     * 获取hashMap
+     * @param key
+     * @return Map<Object, Object>
+     */
+    public Map<Object, Object> getHashMap(String key){
+        return stringRedisTemplate.opsForHash().entries(key);
     }
 
     /**
