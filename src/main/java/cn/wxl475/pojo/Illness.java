@@ -25,11 +25,11 @@ public class Illness {
     @Field(type = FieldType.Long, store = true,index = false)
     private Long illnessId;
 
-    @Field(type = FieldType.Keyword, store = true, analyzer = "ik_max_word",searchAnalyzer = "ik_smart")
+    @Field(type = FieldType.Keyword, store = true)
     private String illnessName;
 
-    @Field(type = FieldType.Integer, store = true,index = false)
-    private Integer illnessType;
+    @Field(type = FieldType.Keyword, store = true)
+    private String illnessType;
 
     // 症状
     @Field(type = FieldType.Text, store = true, analyzer = "ik_max_word",searchAnalyzer = "ik_smart")
