@@ -1,6 +1,7 @@
 package cn.wxl475.pojo;
 
-import cn.wxl475.pojo.enums.optionType;
+import cn.wxl475.pojo.enums.OptionType;
+import cn.wxl475.pojo.enums.QuestionType;
 import com.baomidou.mybatisplus.annotation.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,8 +10,6 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
-
-import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
@@ -24,7 +23,7 @@ public class Question {
     private Long questionId;
     @TableField("question_type")
     @Field(type = FieldType.Keyword, store = true)
-    private cn.wxl475.pojo.enums.questionType questionType;
+    private QuestionType questionType;
     @TableField("description")
     @Field(type = FieldType.Text, store = true, analyzer = "ik_max_word",searchAnalyzer = "ik_smart")
     private String description;
@@ -56,7 +55,7 @@ public class Question {
     private String optionD;
     @TableField("right_option")
     @Field(type = FieldType.Keyword, store = true)
-    private optionType rightOption;
+    private OptionType rightOption;
     //判断题
     @TableField("right_judge")
     @Field(type = FieldType.Keyword, store = true)

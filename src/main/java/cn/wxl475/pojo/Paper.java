@@ -24,11 +24,14 @@ public class Paper {
     @TableField("paper_name")
     @Field(type = FieldType.Text, store = true, analyzer = "ik_max_word",searchAnalyzer = "ik_smart")
     private String paperName;
+    @TableField("paper_description")
+    @Field(type = FieldType.Text, store = true, analyzer = "ik_max_word",searchAnalyzer = "ik_smart")
+    private String paperDescription;
     @TableField("exam_time")
-    @Field(type = FieldType.Integer, store = true,index = false)
+    @Field(type = FieldType.Keyword, store = true)
     private Integer examTime;
     @TableField("total_score")
-    @Field(type = FieldType.Integer, store = true,index = false)
+    @Field(type = FieldType.Keyword, store = true)
     private Integer totalScore;
 
     //注解填充字段 @TableField(.. fill = FieldFill.INSERT) 生成器策略部分也可以配置！

@@ -1,6 +1,6 @@
 package cn.wxl475.pojo;
 
-import cn.wxl475.pojo.enums.optionType;
+import cn.wxl475.pojo.enums.OptionType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
@@ -20,7 +20,7 @@ public class ExamDetail {
     private boolean isRight;
     //选择题
     @TableField("option")
-    private optionType option;
+    private OptionType option;
     //判断题
     @TableField("judge")
     private boolean judge;
