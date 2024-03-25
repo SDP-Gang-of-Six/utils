@@ -22,6 +22,8 @@ public class Video {
     private Long videoId;
     @Field(type = FieldType.Long, store = true,index = false)
     private Long userId;
+    @Field(type = FieldType.Keyword, store = true,index = false)
+    private String videoMd5;
     @Field(type = FieldType.Text, store = true, analyzer = "ik_max_word",searchAnalyzer = "ik_smart")
     private String videoUrl;
     @Field(type = FieldType.Text, store = true, analyzer = "ik_max_word",searchAnalyzer = "ik_smart")

@@ -177,20 +177,29 @@ public class CacheClient {
     }
 
     /**
-     * 设置hash
+     * 设置hashMap
      * @param key
      * @param hashMap
      */
-    public void setHash(String key, Map<String,String> hashMap){
+    public void setHashMap(String key, Map<Object,Object> hashMap){
         stringRedisTemplate.opsForHash().putAll(key, hashMap);
     }
+
+    /**
+     * 删除hashKey
+     * @param key
+     */
+    public void deleteHashMap(String key){
+        stringRedisTemplate.opsForHash().delete(key);
+    }
+
     /**
      * 获取hashValue
      * @param key
      * @param mapKey
      * @return Object
      */
-    public Object getHashValue(String key, String mapKey){
+    public Object getHashValue(String key, Object mapKey){
         return stringRedisTemplate.opsForHash().get(key,mapKey);
     }
 
