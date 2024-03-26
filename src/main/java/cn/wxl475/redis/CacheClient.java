@@ -191,7 +191,7 @@ public class CacheClient {
      * @param key
      */
     public <HashKey> void deleteHashKeys(String key, ArrayList<HashKey> list){
-        stringRedisTemplate.opsForHash().delete(key,list);
+        stringRedisTemplate.opsForHash().delete(key,list.toArray());
     }
 
     /**
