@@ -10,6 +10,7 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
@@ -181,7 +182,7 @@ public class CacheClient {
      * @param key
      * @param hashMap
      */
-    public void setHashMap(String key, Map<Object,Object> hashMap){
+    public <HashKey,HashValue> void setHashMap(String key, Map<HashKey,HashValue> hashMap){
         stringRedisTemplate.opsForHash().putAll(key, hashMap);
     }
 
@@ -189,8 +190,8 @@ public class CacheClient {
      * 删除hashKey
      * @param key
      */
-    public void deleteHashMap(String key){
-        stringRedisTemplate.opsForHash().delete(key);
+    public <HashKey> void deleteHashKeys(String key, ArrayList<HashKey> list){
+        stringRedisTemplate.opsForHash().delete(key,list);
     }
 
     /**
@@ -199,8 +200,8 @@ public class CacheClient {
      * @param mapKey
      * @return Object
      */
-    public Object getHashValue(String key, Object mapKey){
-        return stringRedisTemplate.opsForHash().get(key,mapKey);
+    public <HashKey,HashValue> HashValue getHashValue(String key, HashKey mapKey){
+        return (HashValue) stringRedisTemplate.opsForHash().get(key,mapKey);
     }
 
     /**
@@ -208,8 +209,8 @@ public class CacheClient {
      * @param key
      * @return Map<Object, Object>
      */
-    public Map<Object, Object> getHashMap(String key){
-        return stringRedisTemplate.opsForHash().entries(key);
+    public <HashKey,HashValue> Map<HashKey, HashValue> getHashMap(String key){
+        return (Map<HashKey, HashValue>) stringRedisTemplate.opsForHash().entries(key);
     }
 
     /**
