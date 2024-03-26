@@ -1,6 +1,5 @@
 package cn.wxl475.utils;
 
-import cn.hutool.jwt.JWTUtil;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
