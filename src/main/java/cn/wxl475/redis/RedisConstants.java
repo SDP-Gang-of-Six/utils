@@ -3,6 +3,7 @@ package cn.wxl475.redis;
 public class RedisConstants {
     public static final Long CACHE_NULL_TTL = 2L;
     public static final Long LOCK_TTL = 10L;
+    public static final String HASH_PREFIX = "hash:";
     public static final String CACHE_QUESTION_KEY = "cache:question:";
     public static final Long CACHE_QUESTION_TTL = 30L;
     public static final Long CACHE_EXAM_TTL = 30L;
@@ -29,5 +30,8 @@ public class RedisConstants {
     public static final String CACHE_IMAGEDETAIL_KEY = "cache:imageDetail:";
     public static final String LOCK_IMAGEDETAIL_KEY = "lock:imageDetail:";
     public static final Long CACHE_IMAGEDETAIL_TTL = 30L;
+    public static final String CACHE_VIDEODETAIL_KEY = "cache:videoDetail:";
+    public static final String LOCK_VIDEODETAIL_KEY = "lock:videoDetail:";
+    public static final Long CACHE_VIDEODETAIL_TTL = 30L;
 
 }
