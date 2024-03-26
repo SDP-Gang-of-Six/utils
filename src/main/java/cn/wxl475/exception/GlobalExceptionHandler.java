@@ -21,12 +21,14 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(MyException.class)//捕获自定义异常
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)//返回http500状态，代表有异常发生
     public Result ex1(MyException ex){
+        ex.printStackTrace();
         log.error(ex.getMsg());
         return Result.error(ex.getMsg()+"\n发生自定义异常："+ex.getClass());
     }
     @ExceptionHandler(Exception.class)//捕获所有异常
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)//返回http500状态，代表有异常发生
     public Result ex(Exception ex){
+        ex.printStackTrace();
         log.error(ex.getMessage());
         return Result.error("未知服务异常："+ex.getClass());
     }
