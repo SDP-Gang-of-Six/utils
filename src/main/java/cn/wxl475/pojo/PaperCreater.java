@@ -21,5 +21,6 @@ public class PaperCreater {
     private Integer totalScore;
     private String createTime;
     private String updateTime;
+    private String paperDescription;
     private ArrayList<PaperScoreCreater> paperScores;
 }

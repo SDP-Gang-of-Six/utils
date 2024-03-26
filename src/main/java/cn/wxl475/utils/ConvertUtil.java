@@ -15,6 +15,7 @@ public class ConvertUtil {
         paper.setTotalScore(paperCreater.getTotalScore());
         paper.setCreateTime(paperCreater.getCreateTime());
         paper.setUpdateTime(paperCreater.getUpdateTime());
+        paper.setPaperDescription(paperCreater.getPaperDescription());
         return paper;
     }
     public static ArrayList<PaperScore> convertPaperScoreCreatersToPaperScores(ArrayList<PaperScoreCreater> paperScoreCreaters, Long paperId) {
@@ -37,6 +38,7 @@ public class ConvertUtil {
         paperCreater.setTotalScore(paper.getTotalScore());
         paperCreater.setCreateTime(paper.getCreateTime());
         paperCreater.setUpdateTime(paper.getUpdateTime());
+        paperCreater.setPaperDescription(paper.getPaperDescription());
         paperCreater.setPaperScores(convertPaperScoresToPaperScoreCreaters(paperScores));
         return paperCreater;
     }
