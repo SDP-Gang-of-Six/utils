@@ -18,8 +18,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 
-import static cn.wxl475.redis.RedisConstants.CACHE_NULL_TTL;
-import static cn.wxl475.redis.RedisConstants.LOCK_TTL;
+import static cn.wxl475.redis.RedisConstants.*;
 
 /*
     * 缓存客户端
@@ -183,7 +182,7 @@ public class CacheClient {
      * @param hashMap
      */
     public <HashKey,HashValue> void setHashMap(String key, Map<HashKey,HashValue> hashMap){
-        stringRedisTemplate.opsForHash().putAll(key, hashMap);
+        stringRedisTemplate.opsForHash().putAll(HASH_PREFIX + key, hashMap);
     }
 
     /**
@@ -191,7 +190,7 @@ public class CacheClient {
      * @param key
      */
     public <HashKey> void deleteHashKeys(String key, ArrayList<HashKey> list){
-        stringRedisTemplate.opsForHash().delete(key,list.toArray());
+        stringRedisTemplate.opsForHash().delete(HASH_PREFIX + key,list.toArray());
     }
 
     /**
@@ -201,7 +200,7 @@ public class CacheClient {
      * @return Object
      */
     public <HashKey,HashValue> HashValue getHashValue(String key, HashKey mapKey){
-        return (HashValue) stringRedisTemplate.opsForHash().get(key,mapKey);
+        return (HashValue) stringRedisTemplate.opsForHash().get(HASH_PREFIX + key,mapKey);
     }
 
     /**
@@ -210,7 +209,7 @@ public class CacheClient {
      * @return Map<Object, Object>
      */
     public <HashKey,HashValue> Map<HashKey, HashValue> getHashMap(String key){
-        return (Map<HashKey, HashValue>) stringRedisTemplate.opsForHash().entries(key);
+        return (Map<HashKey, HashValue>) stringRedisTemplate.opsForHash().entries(HASH_PREFIX + key);
     }
 
     /**
