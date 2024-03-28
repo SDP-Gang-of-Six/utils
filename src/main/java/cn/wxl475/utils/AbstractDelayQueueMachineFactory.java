@@ -89,7 +89,7 @@ public abstract class AbstractDelayQueueMachineFactory {
                 // 间隔()秒执行一次
                 //根据业务场景设置对应时间
                 try {
-                    TimeUnit.SECONDS.sleep(5);
+                    TimeUnit.SECONDS.sleep(30);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

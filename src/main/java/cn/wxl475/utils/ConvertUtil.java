@@ -1,6 +1,6 @@
 package cn.wxl475.utils;
 
-import cn.wxl475.pojo.*;
+import cn.wxl475.pojo.exam.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;

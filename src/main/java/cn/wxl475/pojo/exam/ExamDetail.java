@@ -1,4 +1,4 @@
-package cn.wxl475.pojo;
+package cn.wxl475.pojo.exam;
 
 import cn.wxl475.pojo.enums.OptionType;
 import com.baomidou.mybatisplus.annotation.TableField;
