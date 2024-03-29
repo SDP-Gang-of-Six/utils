@@ -34,4 +34,6 @@ public class RedisConstants {
     public static final String LOCK_VIDEODETAIL_KEY = "lock:videoDetail:";
     public static final Long CACHE_VIDEODETAIL_TTL = 30L;
 
+    public static final String EXAM_DELAY_QUEUE = "exam_delay_queue";
+
 }

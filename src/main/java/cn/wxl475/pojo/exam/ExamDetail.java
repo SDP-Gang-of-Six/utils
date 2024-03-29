@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@TableName(value = "examDetail",schema = "exam")
+@TableName(value = "examdetail",schema = "exam")
 public class ExamDetail {
     @TableField("exam_id")
     private Long examId;
@@ -19,8 +19,8 @@ public class ExamDetail {
     @TableField("is_right")
     private boolean isRight;
     //选择题
-    @TableField("option")
-    private OptionType option;
+    @TableField("your_option")
+    private OptionType yourOption;
     //判断题
     @TableField("judge")
     private boolean judge;
