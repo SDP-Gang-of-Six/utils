@@ -1,4 +1,4 @@
 package cn.wxl475.pojo.base;
 
-public class Post {
+public class Item {
 }
