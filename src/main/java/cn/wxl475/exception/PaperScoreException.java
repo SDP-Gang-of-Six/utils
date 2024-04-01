@@ -1,12 +1,8 @@
 package cn.wxl475.exception;
 
-import lombok.Data;
 
-@Data
-public class PaperScoreException extends RuntimeException {
-    private String msg;
-
+public class PaperScoreException extends MyException {
     public PaperScoreException(String msg) {
-        this.msg=msg;
+        super("试卷分数异常"+msg);
     }
 }
