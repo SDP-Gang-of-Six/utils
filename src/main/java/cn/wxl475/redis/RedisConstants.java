@@ -8,9 +8,9 @@ public class RedisConstants {
     public static final Long CACHE_QUESTION_TTL = 30L;
     public static final Long CACHE_EXAM_TTL = 30L;
     public static final Long CACHE_PAPER_TTL = 30L;
-    public static final Long CACHE_PAPERSCORE_TTL = 30L;
+    public static final Long CACHE_PAPER_SCORE_TTL = 30L;
     public static final String CACHE_PAPER_KEY = "cache:paper:";
-    public static final String CACHE_PAPERSCORE_KEY = "cache:paperScore:";
+    public static final String CACHE_PAPER_SCORE_KEY = "cache:paperScore:";
     public static final String CACHE_EXAM_KEY = "cache:exam:";
     public static final String CACHE_USERS_KEY = "cache:users:";
     public static final String LOCK_USERS_KEY = "lock:users:";
@@ -19,20 +19,23 @@ public class RedisConstants {
     public static final String LOCK_QUESTION_KEY = "lock:question";
     public static final String LOCK_EXAM_KEY = "lock:exam";
     public static final String LOCK_PAPER_KEY = "lock:paper";
-    public static final String LOCK_PAPERSCORE_KEY = "lock:paperScore";
+    public static final String LOCK_PAPER_SCORE_KEY = "lock:paperScore";
     public static final Long CACHE_USERS_TTL = 30L;
     public static final String CACHE_ILLNESS_KEY = "cache:illness:";
     public static final String LOCK_ILLNESS_KEY = "lock:illness:";
     public static final Long CACHE_ILLNESS_TTL = 30L;
-    public static final String CACHE_EXAMDETAIL_KEY = "cache:examDetail:";
-    public static final String LOCK_EXAMDETAIL_KEY = "lock:examDetail:";
-    public static final Long CACHE_EXAMDETAIL_TTL = 30L;
-    public static final String CACHE_IMAGEDETAIL_KEY = "cache:imageDetail:";
-    public static final String LOCK_IMAGEDETAIL_KEY = "lock:imageDetail:";
-    public static final Long CACHE_IMAGEDETAIL_TTL = 30L;
-    public static final String CACHE_VIDEODETAIL_KEY = "cache:videoDetail:";
-    public static final String LOCK_VIDEODETAIL_KEY = "lock:videoDetail:";
-    public static final Long CACHE_VIDEODETAIL_TTL = 30L;
+    public static final String CACHE_EXAM_DETAIL_KEY = "cache:examDetail:";
+    public static final String LOCK_EXAM_DETAIL_KEY = "lock:examDetail:";
+    public static final Long CACHE_EXAM_DETAIL_TTL = 30L;
+    public static final String CACHE_IMAGE_DETAIL_KEY = "cache:imageDetail:";
+    public static final String LOCK_IMAGE_DETAIL_KEY = "lock:imageDetail:";
+    public static final Long CACHE_IMAGE_DETAIL_TTL = 30L;
+    public static final String CACHE_VIDEO_DETAIL_KEY = "cache:videoDetail:";
+    public static final String LOCK_VIDEO_DETAIL_KEY = "lock:videoDetail:";
+    public static final Long CACHE_VIDEO_DETAIL_TTL = 30L;
+    public static final String CACHE_DEPARTMENT_DETAIL_KEY = "cache:departmentDetail:";
+    public static final String LOCK_DEPARTMENT_DETAIL_KEY = "lock:departmentDetail:";
+    public static final Long CACHE_DEPARTMENT_DETAIL_TTL = 30L;
 
     public static final String EXAM_DELAY_QUEUE = "exam_delay_queue";
 
