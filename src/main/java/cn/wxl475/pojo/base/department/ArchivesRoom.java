@@ -8,7 +8,7 @@ public class ArchivesRoom extends Department{
     List<Record> archivesRoomRecords;
 
     public ArchivesRoom(Department department, List<Record> archivesRoomRecords) {
-        super(department.getDepartmentId(), department.getDepartmentName(), department.getDepartmentType(), department.getDepartmentPrincipal(), department.getDepartmentFunction(), department.getCreateTime(), department.getUpdateTime(), department.getDeleted());
+        super(department.getDepartmentId(), department.getDepartmentName(), department.getDepartmentType(), department.getDepartmentPrincipal(), department.getDepartmentFunction(), department.getDepartmentRoomNumber(), department.getCreateTime(), department.getUpdateTime(), department.getDeleted());
         this.archivesRoomRecords = archivesRoomRecords;
     }
 }

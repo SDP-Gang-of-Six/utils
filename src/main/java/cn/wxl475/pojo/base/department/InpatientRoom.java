@@ -8,7 +8,7 @@ public class InpatientRoom extends Department{
     List<Hospitalization> inpatientRoomHospitalizations;
 
     public InpatientRoom(Department department, List<Hospitalization> inpatientRoomHospitalizations) {
-        super(department.getDepartmentId(), department.getDepartmentName(), department.getDepartmentType(), department.getDepartmentPrincipal(), department.getDepartmentFunction(), department.getCreateTime(), department.getUpdateTime(), department.getDeleted());
+        super(department.getDepartmentId(), department.getDepartmentName(), department.getDepartmentType(), department.getDepartmentPrincipal(), department.getDepartmentFunction(),department.getDepartmentRoomNumber(), department.getCreateTime(), department.getUpdateTime(), department.getDeleted());
         this.inpatientRoomHospitalizations = inpatientRoomHospitalizations;
     }
 }

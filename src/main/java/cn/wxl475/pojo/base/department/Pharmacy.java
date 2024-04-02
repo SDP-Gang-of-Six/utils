@@ -8,7 +8,7 @@ public class Pharmacy extends Department{
     List<Medicine> pharmacyMedicines;
 
     public Pharmacy(Department department, List<Medicine> pharmacyMedicines) {
-        super(department.getDepartmentId(), department.getDepartmentName(), department.getDepartmentType(), department.getDepartmentPrincipal(), department.getDepartmentFunction(), department.getCreateTime(), department.getUpdateTime(), department.getDeleted());
+        super(department.getDepartmentId(), department.getDepartmentName(), department.getDepartmentType(), department.getDepartmentPrincipal(), department.getDepartmentFunction(),department.getDepartmentRoomNumber(), department.getCreateTime(), department.getUpdateTime(), department.getDeleted());
         this.pharmacyMedicines = pharmacyMedicines;
     }
 }
