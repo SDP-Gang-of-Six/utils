@@ -1,4 +1,4 @@
-package cn.wxl475.pojo.base;
+package cn.wxl475.pojo.base.vaccine;
 
 import com.baomidou.mybatisplus.annotation.*;
 import lombok.AllArgsConstructor;
@@ -21,10 +21,13 @@ public class Vaccine {
     private Long vaccineId;
     @Field(type = FieldType.Text, store = true, analyzer = "ik_max_word",searchAnalyzer = "ik_smart")
     private String vaccineName;
-    @Field(type = FieldType.Keyword, store = true,index = false)
-    private String vaccineUsage;
     @Field(type = FieldType.Text, store = true, analyzer = "ik_max_word",searchAnalyzer = "ik_smart")
     private String vaccineDetail;
+    @Field(type = FieldType.Integer, store = true,index = false)
+    private Integer vaccinePrice;
+    @Field(type = FieldType.Integer, store = true,index = false)
+    private Integer vaccineStock;
+
     //注解填充字段 @TableField(.. fill = FieldFill.INSERT) 生成器策略部分也可以配置！
     @TableField(fill = FieldFill.INSERT)
     @Field(type = FieldType.Keyword, store = true,index = false)

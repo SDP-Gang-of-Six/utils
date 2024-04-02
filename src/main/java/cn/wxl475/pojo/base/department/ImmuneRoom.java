@@ -1,6 +1,6 @@
 package cn.wxl475.pojo.base.department;
 
-import cn.wxl475.pojo.base.Vaccine;
+import cn.wxl475.pojo.base.vaccine.Vaccine;
 
 import java.util.List;
 
