@@ -1,4 +1,4 @@
-package cn.wxl475.pojo.base;
+package cn.wxl475.pojo.base.department;
 
 import com.baomidou.mybatisplus.annotation.*;
 import lombok.AllArgsConstructor;
@@ -21,6 +21,12 @@ public class Department {
     private Long departmentId;
     @Field(type = FieldType.Text, store = true, analyzer = "ik_max_word",searchAnalyzer = "ik_smart")
     private String departmentName;
+    @Field(type = FieldType.Text, store = true, analyzer = "ik_max_word",searchAnalyzer = "ik_smart")
+    private String departmentType;
+    @Field(type = FieldType.Text, store = true, analyzer = "ik_max_word",searchAnalyzer = "ik_smart")
+    private String departmentPrincipal;
+    @Field(type = FieldType.Text, store = true, analyzer = "ik_max_word",searchAnalyzer = "ik_smart")
+    private String departmentFunction;
     //注解填充字段 @TableField(.. fill = FieldFill.INSERT) 生成器策略部分也可以配置！
     @TableField(fill = FieldFill.INSERT)
     @Field(type = FieldType.Keyword, store = true,index = false)

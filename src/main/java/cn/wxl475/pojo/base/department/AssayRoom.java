@@ -1,0 +1,15 @@
+package cn.wxl475.pojo.base.department;
+
+import cn.wxl475.pojo.base.Item;
+import cn.wxl475.pojo.base.Medicine;
+
+import java.util.List;
+
+public class AssayRoom extends Department{
+    List<Item> assayRoomItems;
+
+    public AssayRoom(Department department, List<Item> assayRoomItems) {
+        super(department.getDepartmentId(), department.getDepartmentName(), department.getDepartmentType(), department.getDepartmentPrincipal(), department.getDepartmentFunction(), department.getCreateTime(), department.getUpdateTime(), department.getDeleted());
+        this.assayRoomItems = assayRoomItems;
+    }
+}
