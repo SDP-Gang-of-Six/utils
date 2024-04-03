@@ -1,6 +1,6 @@
 package cn.wxl475.pojo.base.department;
 
-import cn.wxl475.pojo.base.Charge;
+import cn.wxl475.pojo.base.Charge.Charge;
 
 import java.util.List;
 
