@@ -24,7 +24,7 @@ public class Illness {
     @Field(type = FieldType.Long, store = true,index = false)
     private Long illnessId;
 
-    @Field(type = FieldType.Keyword, store = true)
+    @Field(type = FieldType.Text, store = true, analyzer = "ik_max_word",searchAnalyzer = "ik_smart")
     private String illnessName;
 
     @Field(type = FieldType.Keyword, store = true)

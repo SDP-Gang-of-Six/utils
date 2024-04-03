@@ -1,6 +1,6 @@
 package cn.wxl475.pojo.base.department;
 
-import cn.wxl475.pojo.base.Record;
+import cn.wxl475.pojo.base.Record.Record;
 
 import java.util.List;
 

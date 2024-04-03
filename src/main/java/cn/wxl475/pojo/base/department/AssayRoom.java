@@ -1,7 +1,6 @@
 package cn.wxl475.pojo.base.department;
 
-import cn.wxl475.pojo.base.Item;
-import cn.wxl475.pojo.base.Medicine;
+import cn.wxl475.pojo.base.Item.Item;
 
 import java.util.List;
 
