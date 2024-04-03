@@ -10,6 +10,6 @@ import java.util.ArrayList;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Page <T>{
-    private Integer totalNumber;
+    private Long totalNumber;
     private ArrayList<T> data;
 }
