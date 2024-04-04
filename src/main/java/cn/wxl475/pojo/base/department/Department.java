@@ -27,7 +27,7 @@ public class Department {
     private String departmentPrincipal;
     @Field(type = FieldType.Text, store = true, analyzer = "ik_max_word",searchAnalyzer = "ik_smart")
     private String departmentFunction;
-    @Field(type = FieldType.Integer, store = true,index = false)
+    @Field(type = FieldType.Integer, store = true)
     private Integer departmentRoomNumber;
     //注解填充字段 @TableField(.. fill = FieldFill.INSERT) 生成器策略部分也可以配置！
     @TableField(fill = FieldFill.INSERT)
