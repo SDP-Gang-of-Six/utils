@@ -38,7 +38,4 @@ public class Image {
     @TableField(fill = FieldFill.INSERT_UPDATE)
     @Field(type = FieldType.Text, store = true,index = false)
     private String updateTime;
-    @TableLogic
-    @Field(type = FieldType.Boolean, store = true,index = false)
-    private Boolean Deleted;
 }
