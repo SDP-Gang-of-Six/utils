@@ -21,11 +21,11 @@ public class Medicine {
     private Long medicineId;
     @Field(type = FieldType.Text, store = true, analyzer = "ik_max_word",searchAnalyzer = "ik_smart")
     private String medicineName;
-    @Field(type = FieldType.Keyword, store = true,index = false)
+    @Field(type = FieldType.Keyword, store = true)
     private String medicineUsage;
-    @Field(type = FieldType.Keyword, store = true,index = false)
+    @Field(type = FieldType.Keyword, store = true)
     private String medicinePrescriptionCategory;
-    @Field(type = FieldType.Integer, store = true,index = false)
+    @Field(type = FieldType.Integer, store = true)
     private Integer medicineStock;
     @Field(type = FieldType.Text, store = true, analyzer = "ik_max_word",searchAnalyzer = "ik_smart")
     private String medicineDetail;
