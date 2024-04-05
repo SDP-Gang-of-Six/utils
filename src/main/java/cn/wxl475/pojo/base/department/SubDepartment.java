@@ -1,14 +1,12 @@
 package cn.wxl475.pojo.base.department;
 
-import cn.wxl475.pojo.base.Record.Record;
-
 import java.util.List;
 
-public class ArchivesRoom extends Department{
-    List<Record> archivesRoomRecords;
+public class SubDepartment <DATA> extends Department{
+    List<DATA> data;
 
-    public ArchivesRoom(Department department, List<Record> archivesRoomRecords) {
+    public SubDepartment(Department department, List<DATA> data) {
         super(department.getDepartmentId(), department.getDepartmentName(), department.getDepartmentType(), department.getDepartmentPrincipal(), department.getDepartmentFunction(), department.getDepartmentRoomNumber(), department.getCreateTime(), department.getUpdateTime(), department.getDeleted());
-        this.archivesRoomRecords = archivesRoomRecords;
+        this.data = data;
     }
 }
