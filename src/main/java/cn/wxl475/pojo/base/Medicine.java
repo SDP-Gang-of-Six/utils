@@ -25,7 +25,7 @@ public class Medicine {
     private String medicineUsage;
     @Field(type = FieldType.Keyword, store = true)
     private String medicinePrescriptionCategory;
-    @Field(type = FieldType.Integer, store = true)
+    @Field(type = FieldType.Keyword, store = true)
     private Integer medicineStock;
     @Field(type = FieldType.Text, store = true, analyzer = "ik_max_word",searchAnalyzer = "ik_smart")
     private String medicineDetail;
