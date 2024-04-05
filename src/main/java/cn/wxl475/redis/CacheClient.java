@@ -88,6 +88,52 @@ public class CacheClient {
         }
         return r;
     }
+
+    /**
+     * 用wrapper查询并设置缓存方法，回写“”值解决缓存穿透，有效期加盐解决缓存雪崩，互斥锁访问数据库解决缓存击穿
+     * @param keyPrefix
+     * @param lockKeyPrefix
+     * @param uniqueKeyValue
+     * @param wrapper
+     * @param type
+     * @param dbFallback
+     * @param time
+     * @param unit
+     * @return R
+     */
+    public <R,UNIQUE,WRAPPER> R queryWrapperWithPassThrough(String keyPrefix, String lockKeyPrefix, UNIQUE uniqueKeyValue , Class<R> type,WRAPPER wrapper, Function<WRAPPER,R> dbFallback,Long time, TimeUnit unit){
+        String key=keyPrefix+uniqueKeyValue;
+        //查询redis
+        String json=stringRedisTemplate.opsForValue().get(key);
+        if(StrUtil.isNotBlank(json)){
+            //不是“”值
+            return JSONUtil.toBean(json,type);
+        }
+        if(json!=null){
+            //是redis中缓存的临时“”值
+            return null;
+        }
+        //没查到缓存，也不是临时“”值，需要查询数据库
+        //互斥锁上锁
+        String lockKey=lockKeyPrefix+uniqueKeyValue;
+        boolean isLock=tryLock(lockKey);
+        R r = null;
+        if(isLock){
+            //查询数据库
+            r = dbFallback.apply(wrapper);
+            //数据库中没有对应数据，回写空值
+            if(r ==null){
+                stringRedisTemplate.opsForValue().set(key,"",CACHE_NULL_TTL,TimeUnit.MINUTES);
+            }
+            //数据库中有数据，随机有效期设置缓存
+            else {
+                this.setWithRandomExpire(key,r,time,unit);
+            }
+            unLock(lockKey);
+        }
+        return r;
+    }
+
     /**
      * 查询List并设置缓存方法，回写“”值解决缓存穿透，有效期加盐解决缓存雪崩，互斥锁访问数据库解决缓存击穿
      * @param keyPrefix
