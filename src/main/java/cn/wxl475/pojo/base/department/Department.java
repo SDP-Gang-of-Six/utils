@@ -37,4 +37,6 @@ public class Department {
     @TableField(fill = FieldFill.INSERT_UPDATE)
     @Field(type = FieldType.Keyword, store = true,index = false)
     private String updateTime;
+    @TableField(exist = false)
+    private Object data;
 }
