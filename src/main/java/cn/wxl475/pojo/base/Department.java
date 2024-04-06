@@ -1,4 +1,4 @@
-package cn.wxl475.pojo.base.department;
+package cn.wxl475.pojo.base;
 
 import com.baomidou.mybatisplus.annotation.*;
 import lombok.AllArgsConstructor;
