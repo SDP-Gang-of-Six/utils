@@ -54,4 +54,12 @@ public class RedisConstants {
     public static final String LOCK_CHARGES_KEY = "lock:charge:";
     public static final Long CACHE_CHARGES_TTL = 30L;
 
+    public static final String CACHE_ITEMS_KEY = "cache:item:";
+    public static final String LOCK_ITEMS_KEY = "lock:item:";
+    public static final Long CACHE_ITEMS_TTL = 30L;
+
+    public static final String CACHE_RECORDS_KEY = "cache:record:";
+    public static final String LOCK_RECORDS_KEY = "lock:record:";
+    public static final Long CACHE_RECORDS_TTL = 30L;
+
 }
