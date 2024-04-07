@@ -13,7 +13,7 @@ import org.springframework.data.elasticsearch.annotations.FieldType;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@TableName(value = "charge", schema = "charge", autoResultMap = true)
+@TableName(value = "charge", schema = "base", autoResultMap = true)
 @Document(indexName = "charge")
 public class Charge {
     @TableId(type = IdType.ASSIGN_ID)
