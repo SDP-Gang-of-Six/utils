@@ -42,7 +42,12 @@ public class RedisConstants {
     public static final String CACHE_MEDICINE_DETAIL_KEY = "cache:medicineDetail:";
     public static final String LOCK_MEDICINE_DETAIL_KEY = "lock:medicineDetail:";
     public static final Long CACHE_MEDICINE_DETAIL_TTL = 30L;
-
+    public static final String CACHE_HOSPITALIZATION_KEY = "cache:hospitalization:";
+    public static final String LOCK_HOSPITALIZATION_KEY = "lock:hospitalization:";
+    public static final Long CACHE_HOSPITALIZATION_TTL = 30L;
+    public static final String CACHE_VACCINE_KEY = "cache:vaccine:";
+    public static final String LOCK_VACCINE_KEY = "lock:vaccine:";
+    public static final Long CACHE_VACCINE_TTL = 30L;
     public static final String EXAM_DELAY_QUEUE = "exam_delay_queue";
 
     public static final String CACHE_CHARGES_KEY = "cache:charge:";
