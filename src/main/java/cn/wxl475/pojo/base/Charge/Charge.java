@@ -34,6 +34,10 @@ public class Charge {
     @TableField(fill = FieldFill.INSERT)
     @Field(type = FieldType.Keyword, store = true,index = false)
     private String createTime;
+    //注解填充字段 @TableField(.. fill = FieldFill.INSERT) 生成器策略部分也可以配置！
+    @TableField(fill = FieldFill.INSERT_UPDATE)
+    @Field(type = FieldType.Keyword, store = true,index = false)
+    private String updateTime;
     @TableLogic
     @Field(type = FieldType.Boolean, store = true,index = false)
     private Boolean deleted;

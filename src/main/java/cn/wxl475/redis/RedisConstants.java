@@ -45,4 +45,8 @@ public class RedisConstants {
 
     public static final String EXAM_DELAY_QUEUE = "exam_delay_queue";
 
+    public static final String CACHE_CHARGES_KEY = "cache:charge:";
+    public static final String LOCK_CHARGES_KEY = "lock:charge:";
+    public static final Long CACHE_CHARGES_TTL = 30L;
+
 }
