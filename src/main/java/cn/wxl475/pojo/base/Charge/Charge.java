@@ -22,14 +22,18 @@ public class Charge {
     private Long chargeId;
     @Field(type = FieldType.Keyword, store = true)
     private String payer;
-    @Field(type = FieldType.Text, store = true, analyzer = "ik_max_word", searchAnalyzer = "ik_smart")
-    private String illnessName;
-    @Field(type = FieldType.Keyword, store = true)
-    private String illnessType;
     @Field(type = FieldType.Integer, store = true, index = false)
-    private Integer money;
+    private Integer registerFee;
+    @Field(type = FieldType.Integer, store = true, index = false)
+    private Integer itemFee;
+    @Field(type = FieldType.Integer, store = true, index = false)
+    private Integer operationFee;
+    @Field(type = FieldType.Integer, store = true)
+    private Integer sum;
     @Field(type = FieldType.Keyword, store = true)
     private String petType;
+    @Field(type = FieldType.Text, store = true, analyzer = "ik_max_word", searchAnalyzer = "ik_smart")
+    private String detail;
     //注解填充字段 @TableField(.. fill = FieldFill.INSERT) 生成器策略部分也可以配置！
     @TableField(fill = FieldFill.INSERT)
     @Field(type = FieldType.Keyword, store = true,index = false)
