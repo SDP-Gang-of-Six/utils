@@ -10,8 +10,8 @@ import java.util.ArrayList;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ExamOut {
-    Exam exam;
-    Paper paper;
-    ArrayList<Question> questions;
-    String nickname;
+    private Exam exam;
+    private Paper paper;
+    private ArrayList<Question> questions;
+    private String nickname;
 }
