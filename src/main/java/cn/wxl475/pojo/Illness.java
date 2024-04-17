@@ -60,10 +60,10 @@ public class Illness {
 
     //注解填充字段 @TableField(.. fill = FieldFill.INSERT) 生成器策略部分也可以配置！
     @TableField(fill = FieldFill.INSERT)
-    @Field(type = FieldType.Text, store = true, index = false)
+    @Field(type = FieldType.Keyword, store = true)
     private String createTime;
 
     @TableField(fill = FieldFill.INSERT_UPDATE)
-    @Field(type = FieldType.Text, store = true, index = false)
+    @Field(type = FieldType.Keyword, store = true)
     private String updateTime;
 }
