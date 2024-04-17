@@ -93,4 +93,11 @@ public class ConvertUtil {
         }
         return examDetails;
     }
+
+    public static QuestionOut convertQuestionToQuestionOut(Question question, Integer score) {
+        QuestionOut questionOut = new QuestionOut();
+        questionOut.setQuestion(question);
+        questionOut.setScore(score);
+        return questionOut;
+    }
 }

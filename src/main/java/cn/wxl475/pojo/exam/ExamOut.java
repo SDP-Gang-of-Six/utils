@@ -5,13 +5,15 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class ExamOut {
     private Exam exam;
+    private List<ExamDetail> examDetails;
     private Paper paper;
-    private ArrayList<Question> questions;
+    private ArrayList<QuestionOut> questionOuts;
     private String nickname;
 }
