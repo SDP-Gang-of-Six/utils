@@ -84,7 +84,9 @@ public class ConvertUtil {
         ArrayList<ExamDetail> examDetails = newExamDetails;
         HashMap<Long,ExamDetail> map = new HashMap<>();
         for (ExamDetail examDetail : newExamDetails) {
-            map.put(examDetail.getQuestionId(),examDetail);
+            if( examDetail.getJudge() != null || examDetail.getYourOption() != null || examDetail.getBlank() != null) {
+                map.put(examDetail.getQuestionId(),examDetail);
+            }
         }
         for (ExamDetail examDetail : oldExamDetails) {
             if (!map.containsKey(examDetail.getQuestionId())) {

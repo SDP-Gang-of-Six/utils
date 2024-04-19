@@ -23,7 +23,7 @@ public class ExamDetail {
     private OptionType yourOption;
     //判断题
     @TableField("judge")
-    private boolean judge;
+    private Boolean judge;
     //填空题
     @TableField("blank")
     private String blank;
