@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 public class ExamDetailCreater {
     private Long questionId;
     //选择题
-    private OptionType option;
+    private OptionType yourOption;
     //判断题
     private boolean judge;
     //填空题

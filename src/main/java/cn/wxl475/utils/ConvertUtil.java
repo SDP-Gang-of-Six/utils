@@ -60,8 +60,8 @@ public class ConvertUtil {
             ExamDetail examDetail = new ExamDetail();
             examDetail.setExamId(examCreater.getExamId());
             examDetail.setQuestionId(examDetailCreater.getQuestionId());
-            if (examDetailCreater.getOption() != null) {
-                examDetail.setYourOption(examDetailCreater.getOption());
+            if (examDetailCreater.getYourOption() != null) {
+                examDetail.setYourOption(examDetailCreater.getYourOption());
             }else if (examDetailCreater.getBlank() != null) {
                 examDetail.setBlank(examDetailCreater.getBlank());
             }else {
