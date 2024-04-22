@@ -51,7 +51,4 @@ public class Hospitalization {
     @TableField(fill = FieldFill.INSERT_UPDATE)
     @Field(type = FieldType.Text, store = true, analyzer = "ik_max_word",searchAnalyzer = "ik_smart")
     private String updateTime;
-    @TableLogic
-    @Field(type = FieldType.Boolean, store = true,index = false)
-    private Boolean Deleted;
 }
